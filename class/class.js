@@ -3,7 +3,7 @@
 // http://ejohn.org/blog/simple-javascript-inheritance/
 // It provides class level inheritance and callbacks.
 //!steal-clean
-steal("jquery","jquery/lang/string",function( $ ) {
+steal("jquery","jquery/lang/string", function() {
 
 	// =============== HELPERS =================
 
@@ -617,7 +617,7 @@ steal("jquery","jquery/lang/string",function( $ ) {
 					//steal.dev.isHappyName(fullName)
 				}
 				if(current[shortName]){
-					steal.dev.warn("class.js There's already something called "+fullName)
+					console.warn("class.js There's already something called "+fullName)
 				}
 				//!steal-remove-end
 				current[shortName] = Class;
@@ -782,4 +782,4 @@ steal("jquery","jquery/lang/string",function( $ ) {
 	proxy = clss.proxy;
 
 
-})();
+});

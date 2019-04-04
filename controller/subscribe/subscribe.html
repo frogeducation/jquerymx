@@ -26,29 +26,29 @@
             </div>
             <h2><a href="#" id="off">Turn OFF Above</a></h2>
         </div>
-        
-        <script type='text/javascript' 
-                src='../../../steal/steal.js'>   
+
+        <script type='text/javascript'
+                src='../../../steal/steal.js'>
         </script>
         <script type='text/javascript'>
-steal('jquery/controller/subscribe').then(function(){
+steal('jquery/controller/subscribe', function(){
     $.Controller('subscribeTest',{
         onDocument: false
     },
     {
         "#subscribe1 click": function(el, ev){
             ev.stopPropagation();
-            this.publish("oaSubscribe1", {"params":"Hola Mundo"});		
+            this.publish("oaSubscribe1", {"params":"Hola Mundo"});
         },
         "oaSubscribe1 subscribe": function(called, data){
             alert("subscribe1 " + data.params + " : " + this.Class.shortName);
         }
     });
-    
+
     var subscribeController = new subscribeTest($("#testSubscribe")[0]);
-    
+
     $("#off").bind("click",function(){
-       subscribeController.destroy(); 
+       subscribeController.destroy();
     })
 });
         </script>

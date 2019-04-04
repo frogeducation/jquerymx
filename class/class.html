@@ -6,7 +6,7 @@
         <style type='text/css'>
             body {font-family: verdana}
             .tabs, .history_tabs {
-                
+
                 padding: 0px; margin: 20px 0 0 0;
             }
             li {
@@ -62,7 +62,7 @@
 <script type='text/javascript'>DEMO_HTML = document.getElementById('demo-html').innerHTML</script>
 <script type='text/javascript' src='../../steal/steal.js'></script>
 <script type='text/javascript' id="demo-source">
-steal('jquery/controller').then(function(){
+steal('jquery/controller', function(){
 $.Controller("Tabs",{
   init : function(){
     this.element.children("li:first").addClass('active')
@@ -89,12 +89,12 @@ Tabs("HistoryTabs",{
 
   // ignore clicks
   "li click" : function(){},
-  
+
   // listen for history changes
   "{window} hashchange" : function(ev){
     var hash = window.location.hash;
     this.activate(hash === '' || hash === '#' ?
-        this.element.find("li:first") : 
+        this.element.find("li:first") :
         this.element.find("a[href="+hash+"]").parent()
       )
   }

@@ -1,7 +1,7 @@
 /**
  * @add jQuery.event.special
  */
-steal('jquery/event').then(function( $ ) {
+steal('jquery/event', function() {
 	/**
 	 * @attribute destroyed
 	 * @parent specialevents
@@ -21,9 +21,9 @@ steal('jquery/event').then(function( $ ) {
 	 * })
 	 * @codeend
 	 * <h2>Quick Demo</h2>
-	 * @demo jquery/event/destroyed/destroyed.html 
+	 * @demo jquery/event/destroyed/destroyed.html
 	 * <h2>More Involved Demo</h2>
-	 * @demo jquery/event/destroyed/destroyed_menu.html 
+	 * @demo jquery/event/destroyed/destroyed_menu.html
 	 */
 
 	var oldClean = jQuery.cleanData;

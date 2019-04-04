@@ -171,8 +171,16 @@ steal('jquery/class', 'jquery/lang/string', function() {
 				return $.fn[name].apply($([this]), arguments);
 			}
 		},
-		bind = $method('bind'),
-		unbind = $method('unbind'),
+        /* This method replaces a previous call to $method.  Explicitly 
+         * adds bind using jquery's on function */
+		bind = function( eventType, handler ) {
+            return $([this]).on.apply($([this]), arguments);
+		},
+        /* This method replaces a previous call to $method.  Explicitly 
+         * adds unbind using jquery's off function */
+		unbind = function( eventType, handler ) {
+            return $([this]).off.apply($([this]), arguments);
+        },
 		STR_CONSTRUCTOR = 'constructor';
 	/**
 	 * @class jQuery.Model
@@ -763,7 +771,7 @@ steal('jquery/class', 'jquery/lang/string', function() {
 			}
 			//!steal-remove-start
 			if (!proto ) {
-				steal.dev.warn("model.js " + fullName + " has no static properties.  You probably need  ,{} ")
+				console.warn("model.js " + fullName + " has no static properties.  You probably need  ,{} ")
 			}
 			//!steal-remove-end
 			each(ajaxMethods, function(name, method){
@@ -1012,7 +1020,7 @@ steal('jquery/class', 'jquery/lang/string', function() {
 
 			//!steal-remove-start
 			if (!length ) {
-				steal.dev.warn("model.js models has no data.  If you have one item, use model")
+				console.warn("model.js models has no data.  If you have one item, use model")
 			}
 			//!steal-remove-end
 			for (; i < length; i++ ) {

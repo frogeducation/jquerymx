@@ -1,24 +1,24 @@
 /**
  *  @add jQuery.fn
  */
-steal('jquery/dom').then(function($){
+steal('jquery/dom', function($){
    var withinBox = function(x, y, left, top, width, height ){
         return (y >= top &&
                 y <  top + height &&
                 x >= left &&
                 x <  left + width);
-    } 
+    }
 /**
  * @function within
  * @parent dom
  * @plugin jquery/dom/within
- * 
+ *
  * Returns the elements are within the position.
- * 
+ *
  *     // get all elements that touch 200x200.
  *     $('*').within(200, 200);
- * 
- * @param {Number} left the position from the left of the page 
+ *
+ * @param {Number} left the position from the left of the page
  * @param {Number} top the position from the top of the page
  * @param {Boolean} [useOffsetCache] cache the dimensions and offset of the elements.
  * @return {jQuery} a jQuery collection of elements whos area
@@ -32,8 +32,8 @@ $.fn.within= function(left, top, useOffsetCache) {
         if (this == document.documentElement) {
 			return ret.push(this);
 		}
-        var offset = useOffsetCache ? 
-						jQuery.data(this,"offsetCache") || jQuery.data(this,"offsetCache", q.offset()) : 
+        var offset = useOffsetCache ?
+						jQuery.data(this,"offsetCache") || jQuery.data(this,"offsetCache", q.offset()) :
 						q.offset();
 
         var res =  withinBox(left, top,  offset.left, offset.top,
@@ -43,7 +43,7 @@ $.fn.within= function(left, top, useOffsetCache) {
 			ret.push(this);
 		}
     });
-    
+
     return this.pushStack( jQuery.unique( ret ), "within", left+","+top );
 }
 
@@ -65,9 +65,9 @@ $.fn.withinBox = function(left, top, width, height, cache){
 
         if(this == document.documentElement) return  this.ret.push(this);
 
-        var offset = cache ? 
-			jQuery.data(this,"offset") || 
-			jQuery.data(this,"offset", q.offset()) : 
+        var offset = cache ?
+			jQuery.data(this,"offset") ||
+			jQuery.data(this,"offset", q.offset()) :
 			q.offset();
 
 
@@ -80,5 +80,5 @@ $.fn.withinBox = function(left, top, width, height, cache){
     });
     return this.pushStack( jQuery.unique( ret ), "withinBox", jQuery.makeArray(arguments).join(",") );
 }
-    
+
 })

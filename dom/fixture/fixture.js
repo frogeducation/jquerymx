@@ -1,26 +1,25 @@
 steal('jquery/dom',
 	'jquery/lang/object',
-	'jquery/lang/string',function( $ ) {
-	
+	'jquery/lang/string', function() {
 	//used to check urls
-	
 
-	
+
+
 	// the pre-filter needs to re-route the url
-	
+
 	$.ajaxPrefilter( function( settings, originalOptions, jqXHR ) {
 	  	// if fixtures are on
 		if(! $.fixture.on) {
 			return;
 		}
-		
+
 		// add the fixture option if programmed in
 		var data = overwrite(settings);
-		
+
 		// if we don't have a fixture, do nothing
 		if(!settings.fixture){
 			if(window.location.protocol === "file:"){
-				steal.dev.log("ajax request to " + settings.url+", no fixture found");
+				console.log("ajax request to " + settings.url+", no fixture found");
 			}
 			return;
 		}
@@ -41,7 +40,7 @@ steal('jquery/dom',
 					steal.root.mapJoin(sub) +'';
 			}
 			//!steal-remove-start
-			steal.dev.log("looking for fixture in " + url);
+			console.log("looking for fixture in " + url);
 			//!steal-remove-end
 			settings.url = url;
 			settings.data = null;
@@ -54,7 +53,7 @@ steal('jquery/dom',
 
 		}else {
 			//!steal-remove-start
-			steal.dev.log("using a dynamic fixture for " +settings.type+" "+ settings.url);
+			console.log("using a dynamic fixture for " +settings.type+" "+ settings.url);
 			//!steal-remove-end
 			
 			//it's a function ... add the fixture datatype so our fixture transport handles it

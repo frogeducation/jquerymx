@@ -1,5 +1,5 @@
-steal('jquery',function($){
-	
+steal('jquery',function(){
+
 var isArray = $.isArray,
 	// essentially returns an object that has all the must have comparisons ...
 	// must haves, do not return true when provided undefined

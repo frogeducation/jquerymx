@@ -1,6 +1,6 @@
 steal("jquery/dom/dimensions",
  	'jquery/view/micro',
- 	'funcunit/qunit').then(function(){
+ 	'funcunit/qunit', function(){
 
 module("jquery/dom/dimensions");
 

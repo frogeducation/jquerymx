@@ -1,5 +1,5 @@
 //allows you to backup and restore a model instance
-steal('jquery/model').then(function($){
+steal('jquery/model', function(){
 var isArray = $.isArray,
 	propCount = function(obj){
 		var count = 0;
@@ -37,7 +37,7 @@ var isArray = $.isArray,
 				count++;
 			}
 			return count === propCount(b)
-		} 
+		}
 		return false;
 	},
 	flatProps = function(a){
@@ -73,7 +73,7 @@ recipe.name = 'blah'
 recipe.isDirty() //-> true
 @codeend
 
-Finally, you can restore the original attributes with 
+Finally, you can restore the original attributes with
 [jQuery.Model.prototype.backup backup].
 
 @codestart
@@ -123,12 +123,12 @@ See this in action:
 		 */
 		restore: function(restoreAssociations) {
 			var props = restoreAssociations ? this._backupStore : flatProps(this._backupStore)
-			this.attrs(props);   
-			
+			this.attrs(props);
+
 			return this;
 		}
-	   
-   })
-})
+
+   });
+});
 
 
