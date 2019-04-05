@@ -1,0 +1,23 @@
+{
+  "name": "jquerymx",
+  "version": "4.0.0",
+  "private": true,
+  "description": "TOC:   A.  How to get (and contribute) to JMVC",
+  "main": "jquery.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frogeducation/jquerymx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frogeducation/jquerymx/issues"
+  },
+  "homepage": "https://github.com/frogeducation/jquerymx#readme"
+}
